@@ -25,9 +25,32 @@ public class Array_4 {
         for (int ligen : arrUser) {
             System.out.print(ligen + " ");
         }
+
         // сортировка по возрастанию
         int temp = 0;
         int l = arrUser.length;
+        int[] arrPos = arrUser;
+
+        // я добавлю сюда проверку для задачи №6
+        /*
+        Задача 6:
+Проверить, является ли массив возрастающей последовательностью (каждое следующее
+число больше предыдущего).
+         */
+        int t = arrPos[0];
+        boolean bul = true;
+        for (int i = 1; i < arrUser.length; i++) {
+            if (t > arrPos[i]) {
+                bul = false;
+                System.out.println("  массив не является возрастающей последовательностью.");
+                break;
+            }
+        }
+        if (bul == true) {
+            System.out.println("  массив является возрастающей последовательностью.");
+        }
+
+        // сортировка массива
         for (int i = 0; i < l; i++) {
             for (int j = i + 1; j < l; j++) {
                 if (arrUser[i] > arrUser[j]) {
@@ -37,7 +60,7 @@ public class Array_4 {
                 }
             }
         }
-//  вывожим отсортированный массив на äкран
+//  вывожим отсортированный массив на экран
         System.out.println(" ");
         System.out.print("Сортировка по возрастанию: ");
         for (int i = 0; i < arrUser.length; i++) {
@@ -59,7 +82,6 @@ public class Array_4 {
         for (int i = 0; i < arrUser.length; i++) {
             System.out.print(arrUser[i] + " ");
         }
-
     }
 }
 
@@ -113,6 +135,7 @@ class Array_5 {
                 max = arrRandom[i];
             }
         }
+
         System.out.println(" ");
         System.out.println("Минимальное значение в массиве равно " + min);
         System.out.println("Максимальное значение в массиве равно " + max);
@@ -147,6 +170,36 @@ class Array_5 {
 
 class Array_6 {
     public static void main(String[] args) {
+        // рандомно выбираются числа для заполнения массива в диапазоне от 0 до 100;
+        // пользователь выбирает лишь длинну массива
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        System.out.println("Пользователь сам должен выбрать длинну массива: ");
+        int userArr = scanner.nextInt();
+        int[] arrRandom = new int[userArr];
+        System.out.println("Наш массив длинной " + userArr + " ячеек.");
+        System.out.println("Числа выбраны и внесены рандомно в деапазоне от 0 до 100");
 
+        for (int i = 0; i < arrRandom.length; i++) {
+            arrRandom[i] += random.nextInt(100);
+        }
+
+        for (int link : arrRandom) {
+            System.out.print(link + " ");
+        }
+        // цикл проходит о массиву до его середины
+        for (int i = 0; i < arrRandom.length / 2; i++) {
+            // меняем местами элементы
+            int temp = arrRandom[i];
+            arrRandom[i] = arrRandom[arrRandom.length - i - 1];
+            arrRandom[arrRandom.length - i - 1] = temp;
+        }
+
+        // вывод резльтатов посде замены.
+        System.out.println(" ");
+        System.out.println("Массив после замены:");
+        for (int num : arrRandom) {
+            System.out.print(num + " ");
+        }
     }
 }
