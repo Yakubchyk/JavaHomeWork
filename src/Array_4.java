@@ -3,6 +3,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Array_4 {
+    /*
+        Задача 1:
+        Пройти по массиву, вывести все элементы в прямом и в обратном порядке.
+         */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите колличество элементов массива: ");
@@ -15,10 +19,7 @@ public class Array_4 {
         for (int ligen : arrUser) {
             System.out.print(ligen + " ");
         }
-        /*
-        Задача 1:
-        Пройти по массиву, вывести все элементы в прямом и в обратном порядке.
-         */
+
 
 
     }
