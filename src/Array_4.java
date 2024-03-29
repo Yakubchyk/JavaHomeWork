@@ -10,7 +10,7 @@ public class Array_4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите колличество элементов массива: ");
-
+// тут пользователь сам ввозит элементы массива
         int[] arrUser = new int[scanner.nextInt()];
         for (int i = 0; i < arrUser.length; i++) {
             arrUser[i] = scanner.nextInt();
@@ -19,8 +19,23 @@ public class Array_4 {
         for (int ligen : arrUser) {
             System.out.print(ligen + " ");
         }
-
-
+        int temp = 0;
+        int l = arrUser.length;
+        for (int i = 0; i < l; i++) {
+            for (int j = i + 1; j < l; j++) {
+                if (arrUser[i] > arrUser[j]) {
+                    temp = arrUser[i];
+                    arrUser[i] = arrUser[j];
+                    arrUser[j] = temp;
+                }
+            }
+        }
+//  вывожим отсортированный массив на жкран
+        System.out.println(" ");
+        System.out.print("Сортировка по возрастанию: ");
+        for (int i = 0; i < arrUser.length; i++) {
+            System.out.print(arrUser[i] + " ");
+        }
 
     }
 }
