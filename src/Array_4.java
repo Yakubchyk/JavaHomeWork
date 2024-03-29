@@ -1,3 +1,8 @@
+/*
+Тут находится вся домашка по массивам.
+В том числе и со звездочкой.
+ */
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -85,10 +90,22 @@ class Array_5 {
         int max = arrRandom[0];
         int minIndex = 0;       // Эти 2 переменные нужны для
         int maxIndex = 0;       // решения следующей задачи.
+        int zeroElement = 0;    // переменная нужна для решения задави 4.
 
+        // Я добавлю в эти циклы проверку на содержанее нулевых элементов в массиве.
+        // Это задание 4.
+        //
+        /*
+Задача 4:
+Найти и вывести количество нулевых элементов. Если нулевых элементов нет - вывести
+сообщение, что их нет.
+ */
         for (int i = 1; i < arrRandom.length; i++) {
             if (arrRandom[i] < min) {
                 min = arrRandom[i];
+            }
+            if (min == 0) {
+                zeroElement += 1;
             }
         }
         for (int i = 1; i < arrRandom.length; i++) {
@@ -99,6 +116,13 @@ class Array_5 {
         System.out.println(" ");
         System.out.println("Минимальное значение в массиве равно " + min);
         System.out.println("Максимальное значение в массиве равно " + max);
+
+        // выведение на экран ответа по задаче 4.
+        if (zeroElement > 0) {
+            System.out.println("Колличество нулевых элементов в массиве: " + zeroElement);
+        } else {
+            System.out.println("Нулевых элементов в массиве нет.");
+        }
 
         /*
         Задача 3:
@@ -121,4 +145,8 @@ class Array_5 {
 }
 
 
+class Array_6 {
+    public static void main(String[] args) {
 
+    }
+}
