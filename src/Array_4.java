@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -35,7 +36,7 @@ class Array_5 {
         int userMeind = scanner.nextInt();
         int[] arrRandom = new int[userMeind];
         System.out.println("Наш массив длинной " + userMeind + " ячеек.");
-        System.out.println("Числа будут внесены рандомно в деапазоне от 0 до 100");
+        System.out.println("Числа выбраны и внесены рандомно в деапазоне от 0 до 100");
 
         for (int i = 0; i < arrRandom.length; i++) {
             arrRandom[i] += random.nextInt(100);
@@ -44,5 +45,24 @@ class Array_5 {
         for (int link : arrRandom) {
             System.out.print(link + " ");
         }
+// сравниваем на предмет нахождения минимума и максимума в массиве
+        // поиск минимума
+        int min = arrRandom[0];
+        for (int i = 1; i < arrRandom.length; i++) {
+            if (arrRandom[i] < min) {
+                min = arrRandom[i];
+            }
+        }
+        System.out.println(" ");
+        System.out.println("Минимальное значение в массиве равно " + min);
+
+        // поиск максимального значение массива
+        int max = arrRandom[0];
+        for (int i = 1; i < arrRandom.length; i++) {
+            if (arrRandom[i] > max) {
+                max = arrRandom[i];
+            }
+        }
+        System.out.println("Максимальное значение в массиве равно " + max);
     }
 }
