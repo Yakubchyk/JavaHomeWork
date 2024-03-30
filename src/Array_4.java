@@ -203,3 +203,55 @@ class Array_6 {
         }
     }
 }
+
+
+/*
+Задача *:
+Имеется массив из неотрицательных чисел(любой). Представьте что массив
+представляет целое число (Например массив {1,2,3} -> 123, {9,9,9} -> 999). Задача
+добавить единицу к этому “числу” и на выходе получить исправленный массив. Массив не
+содержит нуля в начале, кроме самого числа 0.
+ */
+class Array_7 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите колличество элементов массива: ");
+// тут пользователь сам ввозит элементы массива
+        int[] arrUser = new int[scanner.nextInt()];
+        System.out.println("Заполните массив: ");
+        for (int i = 0; i < arrUser.length; i++) {
+            arrUser[i] = scanner.nextInt();
+        }
+        System.out.print("Содердивое массива: ");
+        for (int ligen : arrUser) {
+            System.out.print(ligen + " ");
+        }
+
+        int n = arrUser.length;
+
+        // начинает проходить массив не с начала, а с конца для этого и n-1;
+        for (int i = n - 1; i >= 0; i--) {
+            arrUser[i]++;
+            if (arrUser[i] < 10) {
+                break;
+            }
+
+            if (i == 0 && arrUser[i] == 10) {
+                int[] newArr = new int[n + 1];
+                newArr[0] = 1;
+                for (int j = 1; j < newArr.length; j++) {
+                    newArr[j] = 0;
+                }
+                arrUser = newArr;
+                break;
+            } else {
+                arrUser[i] = 0;
+            }
+        }
+        System.out.println(" ");
+        System.out.print("Содердивое массива после прибавления 1(ед) :   ");
+        for (int ligen : arrUser) {
+            System.out.print(ligen + " ");
+        }
+    }
+}
