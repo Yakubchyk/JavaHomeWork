@@ -37,10 +37,9 @@ public class Array_4 {
 Проверить, является ли массив возрастающей последовательностью (каждое следующее
 число больше предыдущего).
          */
-        int t = arrPos[0];
         boolean bul = true;
-        for (int i = 1; i < arrUser.length; i++) {
-            if (t > arrPos[i]) {
+        for (int i = 0; i < arrUser.length - 1; i++) {
+            if (arrPos[i] > arrPos[i + 1]) {
                 bul = false;
                 System.out.println("  массив не является возрастающей последовательностью.");
                 break;
